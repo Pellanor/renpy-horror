@@ -1,5 +1,23 @@
-# Project files to ignore
+# Renpy Ignore
+*.rpyc
+*.rpyb
+*.rpymc
+*.pyc
+*.pyo
+
+*~
+*.bak
+
+saves
+tmp
+cache
+env
+
 log.txt
+errors.txt
+traceback.txt
+
+styles.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

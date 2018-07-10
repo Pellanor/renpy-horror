@@ -1,5 +1,8 @@
 ﻿# The script of the game goes in this file.
 
+init python:
+    import src.TestModule
+
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -27,6 +30,8 @@ label start:
     e "You've created a new Ren'Py game."
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
+
+    $ e("Your random number is " + str(src.TestModule.get_random_number()) + "!")
 
     # This ends the game.
 
