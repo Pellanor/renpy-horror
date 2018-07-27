@@ -1,38 +1,52 @@
 ﻿# The script of the game goes in this file.
 
-init python:
-    import src.TestModule
+image phone = "phone.png"
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+screen phone_menu:
+    tag menu 
+    frame:
+        xpadding 10
+        ypadding 10
+        xpos 50
+        ypos 100
+        background "images/phone.png"
 
-define e = Character("Eileen")
+        imagebutton idle "phoneIcon.png" action Jump("phone_menu") xpos 15 ypos 25 
+
+screen contacts_menu:
+    tag menu 
+    frame:
+        xpadding 10
+        ypadding 10
+        xpos 50
+        ypos 100
+        background "images/phone.png"
+
+        imagebutton idle "momButton.png" action Jump("mom_convo") xpos 14 ypos 50
 
 
 # The game starts here.
 
 label start:
+    "phone" "..."
+    call screen phone_menu
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
 
-    scene bg room
+label phone_menu:
+    "Player-kun" "Who should I call...?"
+ 
+    call screen contacts_menu
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    show eileen happy
-
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    $ e("Your random number is " + str(src.TestModule.get_random_number()) + "!")
-
-    # This ends the game.
-
+label mom_convo:
+    "Mom" "Hello?"
+    "Player-kun" "Mom? It's me, Player-kun."
+    "Mom" "...nobody else to call, huh..."
+    "Player-kun" "...uh?"
+    "Mom" "Look... I'm not here to entertain you, Player-kun. I have a very vital and entertaining life outside of you." 
+    "Player-kun" "Mom..."
+    "Player-kun" "..."
+    "Player-kun" "...she hung up."
+    call screen phone_menu
+    
+  
     return
