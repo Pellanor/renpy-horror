@@ -3,6 +3,7 @@
 init python:
     import src.TestModule
     from src.SaveTest import SaveTest
+    from src.SaveTestFunctional import SaveTestFunctional
     var = "undefined"
 
 # Declare characters used by this game. The color argument colorizes the
@@ -49,6 +50,10 @@ label saveTest:
             jump optionC
         "Test Nesting":
             jump nest
+        "Init Functional":
+            jump funcStart
+        "Test Functional Add":
+            jump functional
         "Quit":
             jump end
 
@@ -70,6 +75,16 @@ label optionC:
 label nest:
     python:
         var.nested("Squirrel")
+    jump saveTest
+
+label funcStart:
+    python:
+        var = SaveTestFunctional()
+    jump saveTest
+
+label functional:
+    python:
+        var = var.add("Monkey")
     jump saveTest
 
 label end:

@@ -16,6 +16,7 @@ class SaveTest:
 
     def add(self, s):
         self.list.append(s)
+        return self
 
     def nested(self, s):
         self.nest = SaveTestNested(s)
